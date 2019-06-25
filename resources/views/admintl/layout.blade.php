@@ -117,30 +117,8 @@
       <!-- /.sidebar -->
     </aside>
 
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <h1>
-          {{-- {{$header}} --}}
-          <small>คำอธิบายเพิ่มเติม</small>
-        </h1>
-        {{-- <ol class="breadcrumb">
-          <li><a href="#"> Level</a></li>
-          <li class="active">Here</li>
-        </ol> --}}
-      </section>
-
-      <!-- Main content -->
-      <section class="content container-fluid">
-
-        <!--------------------------
-        | Your Page Content Here |
-        -------------------------->
         @yield('content')
-
-      </section>
-      <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
 

@@ -17,14 +17,6 @@
     <link rel="stylesheet" href="/adminlte/dist/css/AdminLTE.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="/adminlte/plugins/iCheck/square/blue.css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
     <style>
@@ -39,8 +31,10 @@
         <!-- /.login-logo -->
         <div class="login-box-body">
         <div class="login-logo">            
-                <i class="fa fa-lock" style="font-size:80px"></i><br>
-                <a href="#"><b>Admin</b>System</a>
+                {{-- <i class="fa fa-lock" style="font-size:80px"></i> --}}
+                <img src="/adminlte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                <br>
+                <a href="#"><b>Management</b>&nbsp;System</a>
             </div>
             <p class="login-box-msg">Sign in to start your session</p>
 
@@ -50,7 +44,7 @@
                 <div class="form-group has-feedback">
                     <input id="id_card" type="text" class="form-control" name="id_card" placeholder="ID Card" value="{{ old('id_card') }}" required
                         autofocus>
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span> @if ($errors->has('id_card'))
+                    <span class="glyphicon glyphicon-credit-card form-control-feedback"></span> @if ($errors->has('id_card'))
                     <span class="help-block">
                             <strong>{{ $errors->first('id_card') }}</strong>
                         </span> @endif
