@@ -4,9 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Log in</title>
+    <title>Donsakwit | Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="icon" type="image/x-icon" href="/imgs/icon/logo_donsakwit_hu2_icon.ico">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Font Awesome -->
@@ -30,7 +31,7 @@
     <div class="login-box">
         <!-- /.login-logo -->
         <div class="login-box-body">
-        <div class="login-logo">            
+            <div class="login-logo">
                 {{-- <i class="fa fa-lock" style="font-size:80px"></i> --}}
                 <img src="/adminlte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                 <br>
@@ -42,26 +43,29 @@
                 {{ csrf_field() }}
 
                 <div class="form-group has-feedback">
-                    <input id="id_card" type="text" class="form-control" name="id_card" placeholder="ID Card" value="{{ old('id_card') }}" required
-                        autofocus>
-                    <span class="glyphicon glyphicon-credit-card form-control-feedback"></span> @if ($errors->has('id_card'))
+                    <input id="id_card" type="text" class="form-control" name="id_card" placeholder="ID Card"
+                        value="{{ old('id_card') }}" required autofocus>
+                    <span class="glyphicon glyphicon-credit-card form-control-feedback"></span>
+                    @if($errors->has('id_card'))
                     <span class="help-block">
-                            <strong>{{ $errors->first('id_card') }}</strong>
-                        </span> @endif
+                        <strong>{{ $errors->first('id_card') }}</strong>
+                    </span> @endif
                 </div>
                 <div class="form-group has-feedback">
-                    <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
+                    <input id="password" type="password" class="form-control" name="password" placeholder="Password"
+                        required>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span> @if ($errors->has('password'))
                     <span class="help-block">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span> @endif
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span> @endif
                 </div>
                 <div class="row">
                     <div class="col-xs-8">
                         <div class="checkbox icheck">
                             <label>
-              <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-            </label>
+                                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember
+                                Me
+                            </label>
                         </div>
                     </div>
                     <!-- /.col -->

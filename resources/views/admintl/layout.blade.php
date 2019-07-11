@@ -6,10 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Donsakwit</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="icon" type="image/x-icon" href="/imgs/icon/logo_donsakwit_hu2_icon.ico">
   <link rel="stylesheet" href="/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="/adminlte/bower_components/Ionicons/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="/adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="/adminlte/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="/adminlte/dist/css/skins/_all-skins.min.css">
   <link rel="stylesheet" href="/adminlte/dist/css/skins/skin-blue.min.css">
   <link href="/css/bootstrap3_player.css" rel="stylesheet">
   <!-- Google Font -->
@@ -108,9 +114,9 @@
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">MENU</li>
           <!-- Optionally, you can add icons to the links -->
-        <li class="{{ Request::routeIs('home') ? 'active' : '' }}"><a href="{{url('')}}"><i class="fa fa-search"></i> <span>ค้นหาห้องเรียน</span></a></li>
+        <li class="{{ Request::routeIs('home') ? 'active' : '' }}"><a href="{{url('')}}"><i class="fa fa-search"></i> <span>ค้นหาห้อง</span></a></li>
         <li class="header">ADMIN</li>
-        <li class="{{ Request::routeIs('setroom') ? 'active' : '' }}"><a href="{{url('setroom')}}"><i class="fa fa-cogs"></i> <span>จัดการห้องเรียน</span></a></li>
+        <li class="{{ Request::routeIs('setroom') ? 'active' : '' }}"><a href="{{url('setroom')}}"><i class="fa fa-cogs"></i> <span>จัดการห้อง</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->
       </section>
@@ -144,9 +150,25 @@
   <!-- AdminLTE App -->
   <script src="/adminlte/dist/js/adminlte.min.js"></script>
 
-  <!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. -->
+  <script src="/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="/adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="/adminlte/bower_components/fastclick/lib/fastclick.js"></script>
+<script>
+  $(function () {
+        $('#example1').DataTable()
+        $('#example2').DataTable({
+          'paging'      : true,
+          'lengthChange': false,
+          'searching'   : false,
+          'ordering'    : true,
+          'info'        : true,
+          'autoWidth'   : false
+        })
+      })
+</script>
 </body>
 
 </html>
