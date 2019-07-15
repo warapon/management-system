@@ -23,7 +23,9 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            <form role="form" method="POST" action="{{url('setroom/store')}}">
+                {{ csrf_field() }}
+                <input type="hidden" name="type" value="1">
                 <div class="box-body">
                     <div class="form-group">
                         <label>ชื่อห้อง</label>
@@ -91,48 +93,49 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form">
+                <form role="form" method="POST" action="{{url('setroom/store')}}">
+                    {{ csrf_field() }}
                     <div class="box-body">
                         <div class="input-group input-group-sm">
-                            <input type="text" class="form-control" placeholder="กรอกชื่ออาคาร...">
+                            <input type="hidden" name="type" value="2">
+                            <input type="text" name="name" class="form-control" placeholder="กรอกชื่ออาคาร...">
                             <span class="input-group-btn">
-                                <button type="button" class="btn btn-success btn-flat"><span
+                                <button type="submit" class="btn btn-success btn-flat"><span
                                         class="glyphicon glyphicon-saved"></span> บันทึก</button>
                             </span>
                         </div>
                     </div>
-                    <!-- /.box-body -->
-
-                    <div class="box-footer">
-                        <div class="box">
-                            <div class="box-header">
-                                <h3 class="box-title">Condensed Full Width Table</h3>
-                            </div>
-                            <!-- /.box-header -->
-                            <div class="box-body no-padding">
-                                <table class="table table-condensed">
-                                    <tbody>
-                                        <tr>
-                                            <th>ชื่ออาคาร</th>
-                                            <th style="width: 20px">#</th>
-                                            <th style="width: 20px">#</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Update software</td>
-                                            <td>
-                                                <button type="button" class="btn btn-block btn-warning btn-xs"><span class="glyphicon glyphicon-edit"></span></button>
-                                            </td>
-                                            <td>
-                                                <button type="button" class="btn btn-block btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.box-body -->
-                        </div>
-                    </div>
                 </form>
+                <!-- /.box-body -->
+
+                <div class="box-footer">
+                    <div class="box">
+                        <!-- /.box-header -->
+                        <div class="box-body no-padding">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <th>ชื่ออาคาร</th>
+                                        <th style="width: 20px">#</th>
+                                        <th style="width: 20px">#</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Update software</td>
+                                        <td>
+                                            <button type="button" class="btn btn-block btn-warning btn-xs"><span
+                                                    class="glyphicon glyphicon-edit"></span></button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-block btn-danger btn-xs"><span
+                                                    class="glyphicon glyphicon-trash"></span></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                </div>
             </div>
             <!-- /.box -->
 
@@ -143,12 +146,14 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form">
+                <form role="form" method="POST" action="{{url('setroom/store')}}">
+                    {{ csrf_field() }}
                     <div class="box-body">
                         <div class="input-group input-group-sm">
+                            <input type="hidden" name="type" value="3">
                             <input type="text" class="form-control" placeholder="กรอกสถานะสภาพห้อง...">
                             <span class="input-group-btn">
-                                <button type="button" class="btn btn-success btn-flat"><span
+                                <button type="submit" class="btn btn-success btn-flat"><span
                                         class="glyphicon glyphicon-saved"></span> บันทึก</button>
                             </span>
                         </div>

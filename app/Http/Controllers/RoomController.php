@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Alert;
+use App\Building;
 
 class RoomController extends Controller
 {
@@ -15,7 +17,7 @@ class RoomController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -44,7 +46,19 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->type == 1) {
+            # code...
+            Alert::message('Robots are working!');
+
+            return redirect('setroom');
+        } elseif ($request->type == 2) {
+            $building = new Building;
+            $building->bd_name = $request->name;
+            $building->save();
+        } else {
+            # code...
+        }
+        //return $request->type;
     }
 
     /**

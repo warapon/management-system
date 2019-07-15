@@ -21,3 +21,4 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('setroom', 'RoomController@index')->name('setroom');
 Route::get('setroom/create', 'RoomController@create')->name('setroom');
+Route::post('setroom/store', 'RoomController@store');

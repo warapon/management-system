@@ -142,6 +142,10 @@
   <!-- ./wrapper -->
 
   <!-- REQUIRED JS SCRIPTS -->
+  <script src="js/sweetalert.min.js"></script>
+
+  <!-- Include this after the sweet alert js file -->
+  @include('sweet::alert')
 
   <!-- jQuery 3 -->
   <script src="/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
