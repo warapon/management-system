@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use Alert;
+use App\Building;
+use App\RoomCondition;
+use Log;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
@@ -14,8 +19,16 @@ class RoomController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            $this->lavel = Auth::user()->lavel;
+            if($this->lavel == 1){                
+            return $next($request);
+            }else{
+                return redirect('/logout');                
+            }
+        });
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +36,11 @@ class RoomController extends Controller
      */
     public function index()
     {
-        return view('page.setroom');
+        $buildings = Building::all();
+        $roomconditions = RoomCondition::all();
+        return view('page.setroom')
+            ->with('buildings', $buildings)
+            ->with('roomconditions', $roomconditions);
     }
 
     /**
@@ -33,7 +50,11 @@ class RoomController extends Controller
      */
     public function create()
     {
-        return view('page.createsetroom');
+        $buildings = Building::all();
+        $roomconditions = RoomCondition::all();
+        return view('page.createsetroom')
+            ->with('buildings', $buildings)
+            ->with('roomconditions', $roomconditions);
     }
 
     /**
@@ -44,7 +65,28 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->type == 1) {
+            # code...
+            Alert::success('บันทึก ข้อมูลห้อง เรียบร้อย', 'สำเร็จ!!');
+            return redirect('setroom');
+        } elseif ($request->type == 2) {
+            $building = new Building;
+            $building->bd_name = $request->name_building;
+            $building->save();
+
+            Log::info('บันทึก ข้อมูลอาคาร เรียบร้อย');
+            Alert::success('บันทึก ข้อมูลอาคาร เรียบร้อย', 'สำเร็จ!!');
+            return redirect('setroom/create');
+        } else {
+            $roomcondition = new RoomCondition;
+            $roomcondition->status_room = $request->status_room;
+            $roomcondition->save();
+
+            Log::info('บันทึก ข้อมูลสภาพห้อง เรียบร้อย');
+            Alert::success('บันทึก ข้อมูลสภาพห้อง เรียบร้อย', 'สำเร็จ!!');
+            return redirect('setroom/create');
+        }
+        //return $request->type;
     }
 
     /**

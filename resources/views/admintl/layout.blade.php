@@ -17,14 +17,23 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="/adminlte/dist/css/skins/_all-skins.min.css">
   <link rel="stylesheet" href="/adminlte/dist/css/skins/skin-blue.min.css">
-  <link href="/css/bootstrap3_player.css" rel="stylesheet">
+  {{-- <link rel="stylesheet" href="/adminlte/dist/css/bootstrap3_player.css"> --}}
+
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
   <style>
-    body, h1, h2, h3, h4, h5, h6{
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       font-family: 'Athiti', sans-serif;
     }
   </style>
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -45,8 +54,8 @@
       <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-      </a>
+          <span class="sr-only">Toggle navigation</span>
+        </a>
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
@@ -85,8 +94,8 @@
                 </form>
               </div>
             </li>
-            </ul>
-            </li>
+          </ul>
+          </li>
           </ul>
         </div>
       </nav>
@@ -114,9 +123,12 @@
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">MENU</li>
           <!-- Optionally, you can add icons to the links -->
-        <li class="{{ Request::routeIs('home') ? 'active' : '' }}"><a href="{{url('')}}"><i class="fa fa-search"></i> <span>ค้นหาห้อง</span></a></li>
-        <li class="header">ADMIN</li>
-        <li class="{{ Request::routeIs('setroom') ? 'active' : '' }}"><a href="{{url('setroom')}}"><i class="fa fa-cogs"></i> <span>จัดการห้อง</span></a></li>
+          <li class="{{ Request::routeIs('home') ? 'active' : '' }}"><a href="{{url('')}}"><i class="fa fa-search"></i>
+              <span>ค้นหาห้อง</span></a></li>
+          <li class="header">ADMIN</li>
+          <li class="{{ Request::routeIs('setroom') ? 'active' : '' }}"><a href="{{url('setroom')}}"><i
+                class="fa fa-cogs"></i> <span>จัดการห้อง</span></a></li>
+          <li><a href="{{url('log-viewer')}}" target="_blank"><i class="fa fa-bug"></i> <span>Log-Viewer</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->
       </section>
@@ -124,7 +136,7 @@
     </aside>
 
     <div class="content-wrapper">
-        @yield('content')
+      @yield('content')
     </div>
     <!-- /.content-wrapper -->
 
@@ -151,13 +163,13 @@
   <script src="/adminlte/dist/js/adminlte.min.js"></script>
 
   <script src="/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="/adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="/adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="/adminlte/bower_components/fastclick/lib/fastclick.js"></script>
-<script>
-  $(function () {
+  <script src="/adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  <!-- SlimScroll -->
+  <script src="/adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+  <!-- FastClick -->
+  <script src="/adminlte/bower_components/fastclick/lib/fastclick.js"></script>
+  <script>
+    $(function () {
         $('#example1').DataTable()
         $('#example2').DataTable({
           'paging'      : true,
@@ -168,7 +180,10 @@
           'autoWidth'   : false
         })
       })
-</script>
+  </script>
+  @yield('script')
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+  @include('sweet::alert')
 </body>
 
 </html>
